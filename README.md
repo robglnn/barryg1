@@ -10,6 +10,12 @@ This project provides a complete development environment for controlling the Uni
 
 ✅ **Fully operational** - Quest controllers provide real-time arm control with first-person video streaming in VR. Full arm movement (shoulders, elbows, wrists) working correctly with DDS video passthrough to Quest VR headset.
 
+## 🚧 Planned Features
+
+- **Audio Passthrough**: Bidirectional audio between Quest 3 and robot (microphone ↔ speakers)
+- **Hip Lean Control**: Control robot body pitch using Quest right joystick forward/back
+- See `docs/PRD_AUDIO_AND_HIP_CONTROL.md` for detailed requirements
+
 ## Project Structure
 
 ```

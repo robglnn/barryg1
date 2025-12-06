@@ -6,6 +6,8 @@ Enable real-time teleoperation of Unitree G1 EDU robot using Meta Quest 3 headse
 - Hand tracking-based robot control
 - Immersive first-person view from robot's perspective
 - Real-time bidirectional communication
+- Bidirectional audio passthrough (planned)
+- Body posture control via hip lean (planned)
 
 ## User Experience Goals
 
@@ -31,6 +33,8 @@ Enable real-time teleoperation of Unitree G1 EDU robot using Meta Quest 3 headse
 - **Dual Arm Control**: Control both robot arms simultaneously
 - **Recording**: Optional data recording for training
 - **Simulation Support**: Can work with Isaac Sim (requires Linux/GPU)
+- **Audio Passthrough** (Planned): Bidirectional audio between Quest 3 and robot
+- **Hip Lean Control** (Planned): Control robot body pitch using Quest joystick
 
 ## Safety Considerations
 
