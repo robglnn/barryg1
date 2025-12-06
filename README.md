@@ -6,6 +6,10 @@ This project provides a complete development environment for controlling the Uni
 - **Cyclone DDS** - Communication middleware
 - **XR Teleoperation** - VR control with Meta Quest 3
 
+## 🎉 Current Status: Stable Arm Control with Visual Passthrough
+
+✅ **Fully operational** - Quest controllers provide real-time arm control with first-person video streaming in VR. Full arm movement (shoulders, elbows, wrists) working correctly with DDS video passthrough to Quest VR headset.
+
 ## Project Structure
 
 ```

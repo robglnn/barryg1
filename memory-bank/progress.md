@@ -30,19 +30,20 @@
 5. **Hybrid DDS Approach** - Uses `Read()` polling to establish connection, then switches to callback-based for ongoing updates
 6. **Error Handling** - Improved Read() error handling with try/except blocks
 
-## ✅ Script Status: OPERATIONAL
+## ✅ Script Status: STABLE - ARM CONTROL WITH VISUAL PASSTHROUGH WORKING!
 
-**Teleoperation is working!**
+**Teleoperation is stable and fully operational!**
 - ✅ DDS connected successfully (<1 second)
-- ✅ Robot responding to controller/hand tracking
+- ✅ Quest controllers controlling robot arms in real-time
+- ✅ Full arm movement (shoulders, elbows, wrists) working correctly
+- ✅ DDS video streaming providing first-person view in Quest VR
+- ✅ Joysticks controlling locomotion (forward/back/strafe/spin)
 - ✅ Safe exit confirmed ('q' returns arms to home)
 - ✅ All critical fixes applied and tested
-- ✅ DDS video streaming integrated (no robot installation required)
-- ✅ Locomotion controls added (joysticks for legs, controllers/hands for arms)
 - ✅ Interactive CLI menu created for complete workflow control
-- ⚠️ Control clarity needs refinement (latency, visual feedback)
+- ✅ macOS threading fix applied (stable, no pickling errors)
 
-**Current Status**: CLI menu operational, ready for testing with controller mode
+**Current Status**: Stable arm control with visual passthrough to Quest VR operational
 
 ## 📝 Known Issues / Clarifications
 
