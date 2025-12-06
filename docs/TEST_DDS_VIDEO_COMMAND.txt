@@ -1,0 +1,2 @@
+source /opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh && conda activate xr_teleop && cd /Users/hg/Documents/barryg1 && python test_dds_video.py en7
+

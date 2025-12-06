@@ -1,0 +1,35 @@
+# 🛡️ Safe Exit - Press 'q' in Terminal
+
+## Safest Exit Method
+
+**Press 'q' in the terminal** (not Ctrl+C)
+
+This will:
+1. Return arms to home position (~5 seconds)
+2. Exit debug mode safely
+3. Clean up all connections
+
+## Before Exiting
+
+**Recommended**: Move your hands to neutral position first:
+- Arms down at sides
+- Elbows slightly bent  
+- Hands in front of body
+
+Wait 5-10 seconds for robot to follow, then press 'q'.
+
+## If Arms Are Raised
+
+1. Move your hands down slowly
+2. Wait for robot to follow (watch directly)
+3. Once arms are down, press 'q'
+
+## Alternative: Keep Script Running
+
+If you want to recharge Quest but keep control:
+1. Move hands to neutral
+2. Wait for robot to follow
+3. Leave script running (robot holds position)
+4. Recharge Quest
+5. Reconnect when ready
+

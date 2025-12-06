@@ -1,0 +1,43 @@
+# 🧪 Control Clarity Tests
+
+## How Control Works
+
+**Hand Tracking Mode** (`--input-mode=hand`):
+- ✅ **Wrist position** → Robot arm position
+- ✅ **Wrist rotation** → Robot wrist rotation
+- ❌ **NOT controllers** (that's `--input-mode=controller`)
+- ❌ **NOT joysticks** (those are for controller mode)
+- ❌ **NOT buttons** (those are for controller mode)
+
+## Quick Tests
+
+### Test 1: Large Vertical Movement
+1. Raise left hand straight up (slowly, 3 seconds)
+2. Watch robot → Left arm should raise
+3. Lower hand → Robot arm should lower
+4. Repeat with right hand
+
+### Test 2: One Arm at a Time
+1. Keep right arm still
+2. Move only left arm (up, down, forward, back)
+3. Watch robot → Only left arm moves
+4. Switch to right arm only
+
+### Test 3: Forward/Back
+1. Move hands forward (away from body)
+2. Robot arms should extend
+3. Move hands back
+4. Robot arms should retract
+
+## Tips
+
+- **Large movements** → Easier to see correlation
+- **Slow movements** → Better control
+- **Watch robot directly** → Visual feedback
+- **One arm at a time** → Clearer correlation
+
+## Expected Latency
+
+- **50-100ms total** (normal for WiFi + processing)
+- Make movements 2-3x slower to see correlation better
+

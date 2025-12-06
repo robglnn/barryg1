@@ -1,0 +1,4 @@
+# Start the Robot Control CLI
+
+source /opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh && conda activate xr_teleop && cd /Users/hg/Documents/barryg1 && python3 robot_control_cli.py
+

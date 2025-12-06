@@ -1,0 +1,40 @@
+# ✅ Script is Ready - Just Need Robot On!
+
+## Current Status
+
+✅ **Script is working correctly!**
+- DDS initialized with correct network interface (`en7`)
+- Logging is reasonable (once per second)
+- Ctrl+C works properly
+
+❌ **Robot is OFF** - That's why DDS can't connect
+
+## What You Need
+
+1. **Turn robot ON**
+2. **Put robot in Debug Mode:**
+   - Press **L2+R2** simultaneously
+   - Then press **L2+A**
+   - Wait for robot to beep/indicate debug mode
+3. **Run the script again**
+
+## Port 60000 Timeout
+
+**Not a problem!** This is just the camera config server. The script uses local config file instead, which is fine.
+
+## Expected Behavior When Robot is On
+
+Once robot is powered on and in debug mode:
+- DDS should connect within 2-5 seconds
+- You'll see: `[G1_23_ArmController] DDS connection established!`
+- Then: `Subscribe dds ok.`
+- Then: `Please enter the start signal (enter 'r' to start the subsequent program)`
+
+## The Command (Ready to Use)
+
+```bash
+source /opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh && conda activate xr_teleop && cd /Users/hg/Documents/barryg1/dependencies/xr_teleoperate/teleop && python teleop_hand_and_arm.py --arm=G1_23 --input-mode=hand --display-mode=immersive --img-server-ip=192.168.123.164
+```
+
+**Everything is ready - just turn the robot on!** 🤖
+

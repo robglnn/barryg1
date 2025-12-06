@@ -1,0 +1,42 @@
+# 🌐 Network Configuration
+
+## All Devices on 192.168.123.X Network:
+
+- **Mac (Laptop)**: 192.168.123.56
+- **G1 Robot**: 192.168.123.164 ✅ (Reachable)
+- **Quest 3**: 192.168.123.172
+
+## Connection Flow:
+
+```
+Quest 3 (192.168.123.172)
+    ↓ (connects to)
+Mac (192.168.123.56:8012)
+    ↓ (communicates with)
+Robot (192.168.123.164)
+```
+
+## Quest 3 Connection URL:
+
+The Quest 3 connects TO the Mac, so use the Mac's IP:
+```
+https://192.168.123.56:8012/?ws=wss://192.168.123.56:8012
+```
+
+## Quick Test Commands:
+
+### Test Robot Connection:
+```bash
+ping 192.168.123.164
+```
+
+### Test Quest 3 Connection:
+```bash
+ping 192.168.123.172
+```
+
+### Check Mac IP:
+```bash
+ifconfig | grep "inet " | grep 192.168.123
+```
+

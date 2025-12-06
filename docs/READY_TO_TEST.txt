@@ -1,0 +1,40 @@
+# ✅ Ready to Test - Callback-Based DDS Conversion Complete
+
+## What Was Changed
+
+✅ Converted `G1_23_ArmController` from polling to callback-based DDS subscription
+✅ Matches the working test script pattern
+✅ Memory bank updated
+
+## Test Command
+
+```bash
+source /opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh && conda activate xr_teleop && cd /Users/hg/Documents/barryg1/dependencies/xr_teleoperate/teleop && python teleop_hand_and_arm.py --arm=G1_23 --input-mode=hand --display-mode=immersive --img-server-ip=192.168.123.164
+```
+
+## Expected Output
+
+1. Script initializes
+2. **DDS connects quickly** (within a few seconds) - callback-based is more reliable
+3. You'll see: `[G1_23_ArmController] Subscribe dds ok.`
+4. Then: `Please enter the start signal (enter 'r' to start the subsequent program)`
+5. **Press 'r'** in terminal to start teleoperation
+6. VR should show robot's camera feed (if configured)
+7. Move your hands - robot should respond!
+
+## Network Info
+
+- Mac: 192.168.123.56 (en7)
+- Robot: 192.168.123.164
+- Quest 3: 192.168.123.133
+- Quest Browser URL: `https://192.168.123.56:8012/?ws=wss://192.168.123.56:8012`
+
+## If It Works
+
+You should be able to:
+- See robot's camera feed in VR
+- Control robot arms with hand movements
+- Control robot hands with gestures
+
+Good luck! 🚀
+

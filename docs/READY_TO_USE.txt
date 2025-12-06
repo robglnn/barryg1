@@ -1,0 +1,17 @@
+# ✅ READY TO USE - Copy-Paste Commands
+
+# MAIN COMMAND - Launch XR Teleoperation (SINGLE LINE):
+source /opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh && conda activate xr_teleop && cd /Users/hg/Documents/barryg1/dependencies/xr_teleoperate/teleop && python teleop_hand_and_arm.py --arm=G1_23 --input-mode=hand --display-mode=immersive
+
+# For simulation mode:
+source /opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh && conda activate xr_teleop && cd /Users/hg/Documents/barryg1/dependencies/xr_teleoperate/teleop && python teleop_hand_and_arm.py --arm=G1_23 --input-mode=hand --display-mode=immersive --sim
+
+# For physical robot (replace IP):
+source /opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh && conda activate xr_teleop && cd /Users/hg/Documents/barryg1/dependencies/xr_teleoperate/teleop && python teleop_hand_and_arm.py --arm=G1_23 --input-mode=hand --display-mode=immersive --img-server-ip=192.168.123.164
+
+# Find your Mac's IP:
+ifconfig | grep "inet " | grep -v 127.0.0.1 | awk '{print $2}' | head -1
+
+# Quest 3 URL (replace YOUR_IP):
+# https://YOUR_IP:8012/?ws=wss://YOUR_IP:8012
+

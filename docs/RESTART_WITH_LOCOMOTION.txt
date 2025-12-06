@@ -1,0 +1,10 @@
+# To restart with locomotion controls:
+
+# 1. Stop current script: Press Ctrl+C in the terminal
+
+# 2. Run with locomotion enabled:
+source /opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh && conda activate xr_teleop && cd /Users/hg/Documents/barryg1/dependencies/xr_teleoperate/teleop && python teleop_hand_and_arm.py --arm=G1_23 --input-mode=hand --display-mode=immersive --img-server-ip=192.168.123.164 --video-source=dds --enable-locomotion
+
+# Note: Robot must be in MOTION MODE (not Debug Mode) for locomotion to work
+# To enter Motion Mode: Use robot remote (R1+X for Regular mode, or R2+A for Running mode)
+

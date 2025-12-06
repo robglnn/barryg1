@@ -1,0 +1,20 @@
+# XR Teleoperation Quick Start - Copy-Paste Commands
+
+# 1. Activate Python environment
+cd /Users/hg/Documents/barryg1 && source venv_xr_teleop_py310/bin/activate
+
+# 2. Launch teleoperation (for G1 23 DOF with hand tracking)
+cd /Users/hg/Documents/barryg1/dependencies/xr_teleoperate/teleop && python teleop_hand_and_arm.py --arm=G1_23 --input-mode=hand --display-mode=immersive
+
+# 3. For simulation mode (testing):
+cd /Users/hg/Documents/barryg1/dependencies/xr_teleoperate/teleop && python teleop_hand_and_arm.py --arm=G1_23 --input-mode=hand --display-mode=immersive --sim
+
+# 4. For physical robot (replace IP with your robot PC2 IP):
+cd /Users/hg/Documents/barryg1/dependencies/xr_teleoperate/teleop && python teleop_hand_and_arm.py --arm=G1_23 --input-mode=hand --display-mode=immersive --img-server-ip=192.168.123.164
+
+# 5. Quest 3 Browser URL (replace 10.10.2.114 with your Mac's current IP):
+https://10.10.2.114:8012/?ws=wss://10.10.2.114:8012
+
+# 6. Find your Mac's IP address:
+ifconfig | grep "inet " | grep -v 127.0.0.1 | awk '{print $2}' | head -1
+

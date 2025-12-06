@@ -1,0 +1,25 @@
+# ✅ Robot is in Debug Mode - Ready to Run!
+
+## 🚀 Run This Command Now:
+
+source /opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh && conda activate xr_teleop && cd /Users/hg/Documents/barryg1/dependencies/xr_teleoperate/teleop && python teleop_hand_and_arm.py --arm=G1_23 --input-mode=hand --display-mode=immersive --img-server-ip=192.168.123.164
+
+## 📋 What to Expect:
+
+1. **Script starts** and initializes
+2. **You should see**: `Enter debug mode: Success` (or it may skip since you're already in debug mode)
+3. **You should see**: `[G1_23_ArmController] Subscribe dds ok.` (instead of "Waiting...")
+4. **Script will wait** for you to press 'r' to start
+
+## 🎮 Once Running:
+
+1. **Press 'r'** in the terminal to start teleoperation
+2. **In Quest 3 browser**, click "Virtual Reality" button
+3. **Move your hands** in VR to control the robot!
+
+## ⚠️ If You Still See "Waiting to subscribe dds...":
+
+- Wait a bit longer - DDS connection can take 10-30 seconds
+- Make sure robot's PC2 DDS service is running
+- Check robot is still in debug mode
+

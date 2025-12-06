@@ -1,0 +1,36 @@
+# 🔍 Test DDS Connection - Single Line Command
+
+## Your Network Interface: en7
+
+## Test DDS Connection (Copy-Paste This):
+
+source /opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh && conda activate xr_teleop && cd /Users/hg/unitree_sdk2_python/example/g1/low_level && python3 g1_low_level_example.py en7
+
+## What This Does:
+
+- Tests if you can receive low-level state data from G1 robot via DDS
+- If it works, you'll see robot joint states, IMU data, battery voltage
+- If it doesn't work, you'll see connection errors
+
+## Expected Output (If Working):
+
+You should see output like:
+- Motor joint states
+- IMU readings  
+- Battery voltage
+- Robot state data
+
+## If It Fails:
+
+- Robot's DDS service may not be running on PC2
+- Network interface may be wrong (try other interfaces if en7 doesn't work)
+- Firewall may be blocking DDS
+- Robot may need high-level service disabled
+
+## Quest 3 XR Errors (Normal):
+
+The "No XR hardware found" errors in browser console are normal. You need to:
+- Use **Quest Browser** (not regular browser)
+- Enable XR features in Quest Browser settings
+- The VR/Pass-through buttons will work once XR is enabled
+

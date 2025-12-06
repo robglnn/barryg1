@@ -1,0 +1,66 @@
+# 🔧 Quick Fix: "Site Can't Be Reached"
+
+## Most Likely Issue: Server Not Running
+
+The Vuer server only runs when the teleoperation script is active!
+
+## Step 1: Start the Teleoperation Script
+
+Run this command in Terminal (keep it running):
+
+```bash
+source /opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh && conda activate xr_teleop && cd /Users/hg/Documents/barryg1/dependencies/xr_teleoperate/teleop && python teleop_hand_and_arm.py --arm=G1_23 --input-mode=hand --display-mode=immersive --img-server-ip=192.168.123.164
+```
+
+**Wait for it to say:**
+- "Serving file://..." 
+- "Visit: https://vuer.ai?grid=False"
+- Or similar server startup messages
+
+## Step 2: Verify Server is Running
+
+In a NEW terminal window, run:
+```bash
+lsof -i :8012
+```
+
+You should see Python processes listening on port 8012.
+
+## Step 3: Check Mac Firewall
+
+**Temporarily disable firewall to test:**
+1. System Settings → Network → Firewall
+2. Turn OFF firewall
+3. Try connecting from Quest
+4. If it works, re-enable and add exception
+
+**Add Firewall Exception (if needed):**
+1. System Settings → Network → Firewall → Options
+2. Click "+" 
+3. Add Python: `/opt/homebrew/Caskroom/miniconda/base/envs/xr_teleop/bin/python`
+4. Allow incoming connections
+
+## Step 4: Test from Mac First
+
+Before trying Quest, test locally:
+- Open Safari on Mac
+- Go to: `https://192.168.123.56:8012/?ws=wss://192.168.123.56:8012`
+- Accept SSL warning
+- If it works on Mac but not Quest = network/firewall issue
+- If it doesn't work on Mac = server not running
+
+## Step 5: Connect from Quest
+
+Once server is running and firewall is configured:
+1. Put on Quest 3
+2. Open Quest Browser
+3. Go to: `https://192.168.123.56:8012/?ws=wss://192.168.123.56:8012`
+4. Accept SSL warning
+5. Should connect!
+
+## Troubleshooting
+
+- **"Site can't be reached"** = Server not running OR firewall blocking
+- **Port 8012 not listening** = Script not running or crashed
+- **Works on Mac but not Quest** = Firewall blocking external connections
+

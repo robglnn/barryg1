@@ -1,0 +1,45 @@
+# 🌐 Updated Network Configuration
+
+## Current Network Setup
+
+- **Network**: 192.168.123.X (all devices on same network)
+- **Mac (Laptop)**: 192.168.123.56 (via ethernet to switch)
+- **Robot (PC2)**: 192.168.123.164 (via ethernet to switch)
+- **Quest 3**: 192.168.123.133 (via WiFi, same network)
+
+## ✅ This Configuration is Fine!
+
+The Quest IP change doesn't matter at all. As long as all devices are on the same network (192.168.123.X), everything will work.
+
+## How It Works
+
+1. **Quest 3** (192.168.123.133) connects to **Mac** (192.168.123.56:8012) via WebSocket
+2. **Mac** (192.168.123.56) connects to **Robot** (192.168.123.164) via DDS
+3. All devices can communicate because they're on the same network
+
+## Quest 3 Connection URL
+
+Open this in Quest Browser:
+
+```
+https://192.168.123.56:8012/?ws=wss://192.168.123.56:8012
+```
+
+(Replace 192.168.123.56 with your actual Mac IP if different)
+
+## Network Topology
+
+```
+Quest 3 (WiFi) ──┐
+                 ├── Switch ── Mac (Ethernet)
+Robot (Ethernet) ┘
+```
+
+All on 192.168.123.X network ✅
+
+## No Changes Needed
+
+- Quest IP can be any 192.168.123.X address
+- As long as Quest can reach Mac's IP (192.168.123.56), it works
+- The Quest doesn't need to directly connect to the robot
+

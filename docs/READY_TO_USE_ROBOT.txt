@@ -1,0 +1,32 @@
+# ✅ READY TO USE - Physical Robot Control
+
+## Your Network Info:
+- Mac IP: 192.168.123.56
+- Robot IP: 192.168.123.164 ✅ (Confirmed reachable)
+- Quest 3 IP: 192.168.123.172
+- Network: 192.168.123.X
+
+## 🚀 START TELEOPERATION (Copy-Paste This):
+
+source /opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh && conda activate xr_teleop && cd /Users/hg/Documents/barryg1/dependencies/xr_teleoperate/teleop && python teleop_hand_and_arm.py --arm=G1_23 --input-mode=hand --display-mode=immersive --img-server-ip=192.168.123.164
+
+## 📱 Quest 3 Connection URL:
+
+https://192.168.123.56:8012/?ws=wss://192.168.123.56:8012
+
+## 📋 Steps:
+
+1. Run the command above in Terminal
+2. Wait for initialization (may see "Waiting to subscribe dds...")
+3. Put on Quest 3, open browser, go to the URL above
+4. Accept SSL certificate warning
+5. Press 'r' in terminal to start teleoperation
+6. Move your hands in VR to control the robot!
+
+## ⚠️ Important Notes:
+
+- Make sure robot is powered on and ready
+- Robot's PC2 should be running the image service
+- First connection may take a moment to establish DDS
+- If you see "Waiting to subscribe dds..." - that's normal, it will connect once robot is ready
+

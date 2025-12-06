@@ -1,0 +1,56 @@
+# 🎮 Quick Quest 3 Tips
+
+## Which VR Button?
+
+✅ **Use "Virtual Reality" button IN the Vuer UI** (the page you loaded)
+❌ **NOT the browser's "Enter VR" button** (upper right corner)
+
+## Setup Order
+
+1. Load Quest Browser → Go to Vuer URL
+2. Click "Virtual Reality" button (in Vuer UI)
+3. Press 'r' in terminal
+
+## Hand Tracking Controls
+
+- **Your wrist position** → Robot arm position
+- **Your wrist rotation** → Robot wrist rotation
+- **Left hand** → Left robot arm
+- **Right hand** → Right robot arm
+
+## Why It Feels Unclear
+
+1. **Latency** (~50-100ms) - Normal, but makes feedback unclear
+2. **No visual feedback** - Black screen until camera feed (if configured)
+3. **Speed ramp-up** - Robot starts slow for safety
+4. **Initial position mismatch** - Your arms might not match robot's position
+
+## How to Verify It's Working
+
+1. **Make large, slow movements** with your hands
+2. **Watch the robot directly** (not just VR)
+3. **Move one hand at a time** - easier to see correlation
+4. **Check terminal** - should show continuous activity
+
+## Initial Alignment (IMPORTANT!)
+
+Before pressing 'r', align your arms to match robot:
+- Arms slightly down and forward
+- Elbows bent
+- Hands in front of body
+
+This prevents sudden movements when teleoperation starts!
+
+## If Arms Don't Move
+
+1. Did you press 'r'? (Check terminal)
+2. Are your hands visible to Quest cameras?
+3. Are arms at joint limits? (Try different position)
+4. Check terminal for errors
+
+## Expected Latency
+
+- **50-100ms total** from hand movement to robot response
+- This is normal for WiFi + processing
+- Make larger movements to see clearer correlation
+

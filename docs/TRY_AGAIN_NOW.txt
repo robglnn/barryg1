@@ -1,0 +1,35 @@
+# 🔄 Try Again - Network Interface Fix Applied
+
+## What Changed
+
+Added explicit network interface (`en7`) to match the working test script pattern.
+
+## Run This Command
+
+```bash
+source /opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh && conda activate xr_teleop && cd /Users/hg/Documents/barryg1/dependencies/xr_teleoperate/teleop && python teleop_hand_and_arm.py --arm=G1_23 --input-mode=hand --display-mode=immersive --img-server-ip=192.168.123.164
+```
+
+## What to Look For
+
+1. **Network Interface**: Should see `[G1_23_ArmController] Using network interface: en7`
+2. **First Callback**: Should see `[G1_23_ArmController] First DDS callback received!` (NEW!)
+3. **Connection Success**: Should see `[G1_23_ArmController] Subscribe dds ok.`
+4. **Ready Prompt**: Should see `Please enter the start signal (enter 'r' to start the subsequent program)`
+
+## Expected Timeline
+
+- **0-2 seconds**: Network interface initialization
+- **2-5 seconds**: DDS callback receives first data
+- **5-6 seconds**: "Subscribe dds ok" message
+- **6+ seconds**: Ready for 'r' key press
+
+## If It Still Doesn't Work
+
+If you still see "Waiting to subscribe dds..." after 10 seconds:
+- Check robot is still in Debug Mode
+- Verify robot's PC2 DDS service is running
+- Check network connectivity: `ping 192.168.123.164`
+
+Let me know what you see!
+

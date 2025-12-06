@@ -1,0 +1,40 @@
+# 🎮 QUICK START - Virtual Simulation with Quest 3
+
+## Your Mac's IP Address: 10.10.2.114
+
+## Step 1: Start the Simulation (Terminal 1)
+
+If you have unitree_sim_isaaclab installed:
+
+```bash
+conda activate unitree_sim_env
+cd ~/unitree_sim_isaaclab
+python sim_main.py --device cpu --enable_cameras --task Isaac-PickPlace-Cylinder-G123-Joint --enable_dex3_dds --robot_type g123
+```
+
+⚠️ IMPORTANT: After the window opens, CLICK ONCE inside it to activate!
+
+## Step 2: Start Teleoperation (Terminal 2)
+
+```bash
+source /opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh && conda activate xr_teleop && cd /Users/hg/Documents/barryg1/dependencies/xr_teleoperate/teleop && python teleop_hand_and_arm.py --arm=G1_23 --input-mode=hand --display-mode=immersive --sim
+```
+
+## Step 3: Connect Quest 3
+
+1. Put on Quest 3
+2. Open browser
+3. Go to: https://10.10.2.114:8012/?ws=wss://10.10.2.114:8012
+4. Accept SSL certificate warning
+
+## Step 4: Start Teleoperation
+
+Press 'r' in Terminal 2 to start!
+
+## If You Don't Have unitree_sim_isaaclab
+
+The script will still run but will wait for DDS connection. You can:
+- Install unitree_sim_isaaclab (see README)
+- Or use MuJoCo viewer for basic visualization
+- Or connect to a physical robot instead
+
