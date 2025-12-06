@@ -76,3 +76,16 @@ htmlcov/
 .dmypy.json
 dmypy.json
 
+# Secrets and tokens
+*.token
+*.key
+*secret*
+*password*
+.env
+.env.local
+ghp_*
+ghs_*
+gho_*
+ghu_*
+ghr_*
+
