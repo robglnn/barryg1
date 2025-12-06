@@ -108,6 +108,38 @@ Add bidirectional audio passthrough between Quest 3 and Unitree G1 robot, and im
 - Ensure BalanceStand is called before allowing movement after lean
 - Add small delays between state transitions to allow robot to stabilize
 
+**Detailed Safety Implementation:**
+
+1. **State Machine States:**
+   - `STATIONARY_NEUTRAL`: Robot stationary, hip pitch at neutral (0)
+   - `STATIONARY_LEANING`: Robot stationary, hip pitch offset applied
+   - `TRANSITIONING_TO_MOVE`: Returning hip pitch to neutral, calling BalanceStand
+   - `MOVING`: Robot moving, hip lean disabled
+
+2. **Preventing Conflicting Commands:**
+   - When in `STATIONARY_LEANING` state and left joystick input detected:
+     - Immediately set state to `TRANSITIONING_TO_MOVE`
+     - Set hip pitch target to 0 (neutral)
+     - Continuously publish hip pitch commands until current position is within tolerance (0.01 rad)
+     - Once neutral: Call `loco_client.BalanceStand(balance_mode=1)`
+     - Wait 0.3-0.5 seconds for balance to stabilize
+     - Set state to `MOVING`, then allow locomotion commands
+   - When in `MOVING` state:
+     - Ignore right joystick Y-axis completely
+     - Maintain hip pitch at neutral via low-level commands
+     - Only transition to `STATIONARY_NEUTRAL` when all velocities are zero for 0.2s
+
+3. **Avoiding Jitter:**
+   - Use exponential moving average (EMA) filter for hip pitch target: `target = alpha * new_target + (1-alpha) * current_target`
+   - Alpha = 0.1-0.2 for smooth transitions
+   - Check hip pitch current vs target before updating (only update if difference > 0.005 rad)
+   - Use same kp/kd values as existing arm control to maintain consistency
+
+4. **Command Priority:**
+   - Locomotion commands (via LocoClient) have priority over hip pitch commands
+   - When transitioning, hip pitch commands take priority until neutral
+   - Once moving, locomotion commands take priority, hip pitch locked to neutral
+
 ### User Experience
 
 - Right joystick forward = robot leans forward (only when stationary)
