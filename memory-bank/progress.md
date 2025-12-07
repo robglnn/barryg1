@@ -61,9 +61,10 @@
 4. **✅ DDS Video** - Camera feed working in Quest browser
 5. **✅ Locomotion Controls** - Joysticks control legs, controllers/hands control arms
 6. **✅ Interactive CLI** - Complete menu system for robot control
-7. **🔄 Testing Combined Control**:
-   - Test locomotion with Quest joysticks (forward/back/strafe/spin)
-   - Test simultaneous arm (controller) + leg (joystick) control
-   - Verify robot is in Motion Mode for locomotion
-8. **Future**: Refine control clarity, test different movement patterns
+7. **✅ Stable Arm Control** - Full arm movement (shoulders, elbows, wrists) working correctly
+8. **📋 Planned Features**:
+   - **Audio Passthrough**: Bidirectional audio between Quest 3 and robot (microphone ↔ speakers)
+   - **Hip Lean Control**: Right joystick Y-axis controls body pitch (stationary only, +/- 0.1 rad limit)
+   - See `docs/PRD_AUDIO_AND_HIP_CONTROL.md` for detailed requirements and implementation plan
+9. **Future**: Implement audio passthrough and hip lean control with safety constraints
 

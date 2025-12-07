@@ -40,6 +40,12 @@ G1 Robot Hardware
 - **DDS VideoClient**: No installation required on robot, works in Debug Mode
 - **teleimager**: Alternative service (runs on robot PC2), requires installation
 
+### 4. Audio Passthrough (Planned)
+- **Quest 3 → Robot**: Web Audio API capture → AudioClient.PlayStream() → Robot speakers
+- **Robot → Quest 3**: Multicast UDP (239.255.1.1:50000) → WebSocket/WebRTC → Quest speakers
+- **Format**: PCM, 16kHz, 16-bit, mono/stereo
+- **Latency Target**: <100ms end-to-end
+
 ## Key Design Patterns
 
 ### Threading vs Multiprocessing

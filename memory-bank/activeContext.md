@@ -77,11 +77,14 @@ Controller mode is the recommended setup: Quest controllers for arm control, joy
 1. **Use CLI for control** - Launch `robot_control_cli.py` for interactive menu
 2. **Test controller mode** - Use option 6 (Controller + Locomotion) in CLI
 3. **Test full workflow** - Switch modes, launch teleop, control via CLI menu
-4. **Documentation organized** - All docs in `docs/` directory, README updated
+4. **Planned Features**:
+   - Audio passthrough (bidirectional Quest 3 ↔ Robot)
+   - Hip lean control (right joystick Y-axis, stationary only, +/- 0.1 rad limit)
+   - See `docs/PRD_AUDIO_AND_HIP_CONTROL.md` for detailed requirements
 
 ## Key Files Modified
 
-- `dependencies/xr_teleoperate/teleop/televuer/src/televuer/televuer.py` - Fixed threading/event loop
+- `dependencies/xr_teleoperate/teleop/televuer/src/televuer/televuer.py` - Fixed threading/event loop for macOS
 - `dependencies/xr_teleoperate/teleop/robot_control/robot_arm.py` - Hybrid DDS approach (polling then callback), reduced logging, motion mode support
 - `dependencies/xr_teleoperate/teleop/teleop_hand_and_arm.py` - **DDS initialization moved to top level** (critical fix), DDS video integration, locomotion controls added, IPC support
 - `dependencies/unitree_sdk2_python/unitree_sdk2py/utils/timerfd.py` - macOS compatibility
@@ -89,6 +92,7 @@ Controller mode is the recommended setup: Quest controllers for arm control, joy
 - `robot_control_cli.py` - **NEW**: Interactive CLI menu for complete robot control workflow
 - `switch_robot_mode.py` - **NEW**: Terminal script for robot mode switching
 - `README.md` - Updated with CLI instructions and documentation structure
+- `docs/PRD_AUDIO_AND_HIP_CONTROL.md` - **NEW**: Product requirements for audio passthrough and hip lean control
 
 ## Important Notes
 
