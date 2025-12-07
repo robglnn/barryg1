@@ -46,6 +46,12 @@ G1 Robot Hardware
 - **Format**: PCM, 16kHz, 16-bit, mono/stereo
 - **Latency Target**: <100ms end-to-end
 
+### 4. Audio Passthrough (Planned)
+- **Quest 3 → Robot**: Web Audio API capture → AudioClient.PlayStream() → Robot speakers
+- **Robot → Quest 3**: Multicast UDP (239.255.1.1:50000) → WebSocket/WebRTC → Quest speakers
+- **Format**: PCM, 16kHz, 16-bit, mono/stereo
+- **Latency Target**: <100ms end-to-end
+
 ## Key Design Patterns
 
 ### Threading vs Multiprocessing
@@ -69,6 +75,11 @@ G1 Robot Hardware
   - Left joystick: Forward/back (Y-axis), Strafe left/right (X-axis)
   - Right joystick: Spin left/right (X-axis)
   - Velocity limits: 0.3 m/s linear, 0.3 rad/s angular
+- **Hip Lean Control** (Planned): Right joystick Y-axis controls body pitch
+  - Only active when stationary (vx=0, vy=0, vyaw=0)
+  - Limited to +/- 0.1 radians (~5.7 degrees)
+  - Safe transition: Returns to neutral standing before allowing locomotion
+  - State machine prevents conflicting commands
 - **Important**: Hand tracking and controller mode are mutually exclusive - Quest switches automatically based on whether controllers are held
 
 ## CLI Architecture
@@ -97,4 +108,6 @@ G1 Robot Hardware
 - **pinocchio**: Inverse kinematics (with casadi support)
 - **dex-retargeting**: Hand pose retargeting
 - **IPC (ZMQ)**: Inter-process communication for remote teleoperation control
+- **Audio Passthrough** (Planned): Bidirectional audio streaming between Quest 3 and robot
+- **Hip Lean Control** (Planned): Low-level DDS motor control for body pitch adjustment
 
