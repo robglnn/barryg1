@@ -245,7 +245,7 @@ class RobotControlCLI:
             f"--input-mode={input_mode}",
             "--display-mode=immersive",
             f"--img-server-ip={ROBOT_IP}",
-            "--video-source=dds",
+            "--video-source=udp",  # Use UDP video6 stream (default, but explicit)
             "--ipc"  # Enable IPC for remote control
         ]
         
