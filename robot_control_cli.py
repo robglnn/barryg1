@@ -38,6 +38,29 @@ TELEOP_SCRIPT = "dependencies/xr_teleoperate/teleop/teleop_hand_and_arm.py"
 ROBOT_IP = "192.168.123.164"
 MAC_IP = "192.168.123.56"
 
+
+def conda_activate_snippet():
+    """Shell prefix that activates CONDA_ENV.
+
+    CONDA_SH overrides discovery. The Homebrew Miniconda cask path is tried
+    first so the machine this was written on keeps the same conda install.
+    """
+    explicit = os.environ.get("CONDA_SH")
+    if explicit:
+        conda_sh = explicit
+    else:
+        home = os.path.expanduser("~")
+        candidates = [
+            "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh",
+            "/usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh",
+            os.path.join(home, "miniconda3", "etc", "profile.d", "conda.sh"),
+            os.path.join(home, "miniforge3", "etc", "profile.d", "conda.sh"),
+            os.path.join(home, "mambaforge", "etc", "profile.d", "conda.sh"),
+            os.path.join(home, "anaconda3", "etc", "profile.d", "conda.sh"),
+        ]
+        conda_sh = next((path for path in candidates if os.path.isfile(path)), candidates[0])
+    return f"source '{conda_sh}' && conda activate {CONDA_ENV}"
+
 class RobotControlCLI:
     def __init__(self):
         self.current_teleop_process = None
@@ -237,8 +260,9 @@ class RobotControlCLI:
         print(f"   Input mode: {input_mode}")
         print(f"   Locomotion: {'Enabled' if enable_locomotion else 'Disabled'}")
         
-        # Build command with --ipc flag for remote control
-        conda_activate = f"source /opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh && conda activate {CONDA_ENV}"
+        # Build command with --ipc flag for remote control.
+        # CONDA_SH overrides the conda install; teleop flags are unchanged.
+        conda_activate = conda_activate_snippet()
         
         cmd_parts = [
             "--arm=G1_23",
